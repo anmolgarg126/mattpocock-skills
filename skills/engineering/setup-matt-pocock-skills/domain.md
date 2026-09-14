@@ -4,9 +4,11 @@ How the engineering skills should consume this repo's domain documentation when 
 
 ## Before exploring, read these
 
-- **`CONTEXT.md`** at the repo root, or
-- **`CONTEXT-MAP.md`** at the repo root if it exists: it points at one `CONTEXT.md` per context. Read each one relevant to the topic.
-- **`docs/adr/`**: read ADRs that touch the area you're about to work in. In multi-context repos, also check `src/<context>/docs/adr/` for context-scoped decisions.
+Domain docs live in `~/Developer/codebase/code-knowledge/<repo>/`, where `<repo>` is the repository folder name, never in the source repo itself.
+
+- **`CONTEXT.md`** in that folder, or
+- **`CONTEXT-MAP.md`** if it exists: it points at one `CONTEXT.md` per context. Read each one relevant to the topic.
+- **`adr/`**: read ADRs that touch the area you're about to work in. In multi-context repos, also check `contexts/<context>/adr/` for context-scoped decisions.
 
 If any of these files don't exist, **proceed silently**. Don't flag their absence; don't suggest creating them upfront. The `/domain-modeling` skill (reached via `/grill-with-docs` and `/improve-codebase-architecture`) creates them lazily when terms or decisions actually get resolved.
 
@@ -15,27 +17,26 @@ If any of these files don't exist, **proceed silently**. Don't flag their absenc
 Single-context repo (most repos):
 
 ```
-/
+~/Developer/codebase/code-knowledge/<repo>/
 ├── CONTEXT.md
-├── docs/adr/
-│   ├── 0001-event-sourced-orders.md
-│   └── 0002-postgres-for-write-model.md
-└── src/
+└── adr/
+    ├── 0001-event-sourced-orders.md
+    └── 0002-postgres-for-write-model.md
 ```
 
-Multi-context repo (presence of `CONTEXT-MAP.md` at the root):
+Multi-context repo (presence of `CONTEXT-MAP.md`):
 
 ```
-/
+~/Developer/codebase/code-knowledge/<repo>/
 ├── CONTEXT-MAP.md
-├── docs/adr/                          ← system-wide decisions
-└── src/
+├── adr/                              ← system-wide decisions
+└── contexts/
     ├── ordering/
     │   ├── CONTEXT.md
-    │   └── docs/adr/                  ← context-specific decisions
+    │   └── adr/                      ← context-specific decisions
     └── billing/
         ├── CONTEXT.md
-        └── docs/adr/
+        └── adr/
 ```
 
 ## Use the glossary's vocabulary

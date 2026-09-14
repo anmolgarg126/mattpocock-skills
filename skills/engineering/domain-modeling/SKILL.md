@@ -9,35 +9,34 @@ Actively build and sharpen the project's domain model as you design. This is the
 
 ## File structure
 
-Most repos have a single context:
+Domain docs never live in the source repo. They live in that repo's knowledge folder, where `<repo>` is the repository folder name:
 
 ```
-/
+~/Developer/codebase/code-knowledge/<repo>/
 ├── CONTEXT.md
-├── docs/
-│   └── adr/
-│       ├── 0001-event-sourced-orders.md
-│       └── 0002-postgres-for-write-model.md
-└── src/
+└── adr/
+    ├── 0001-event-sourced-orders.md
+    └── 0002-postgres-for-write-model.md
 ```
 
-If a `CONTEXT-MAP.md` exists at the root, the repo has multiple contexts. The map points to where each one lives:
+If `CONTEXT-MAP.md` exists there, the repo has multiple contexts, and the map points to where each one lives:
 
 ```
-/
+~/Developer/codebase/code-knowledge/<repo>/
 ├── CONTEXT-MAP.md
-├── docs/
-│   └── adr/                          ← system-wide decisions
-├── src/
-│   ├── ordering/
-│   │   ├── CONTEXT.md
-│   │   └── docs/adr/                 ← context-specific decisions
-│   └── billing/
-│       ├── CONTEXT.md
-│       └── docs/adr/
+├── adr/                              ← system-wide decisions
+└── contexts/
+    ├── ordering/
+    │   ├── CONTEXT.md
+    │   └── adr/                      ← context-specific decisions
+    └── billing/
+        ├── CONTEXT.md
+        └── adr/
 ```
 
-Create files lazily: only when you have something to write. If no `CONTEXT.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
+A decision binding several repos is not repo knowledge: write it to `~/Developer/codebase/brainstorming/<feature>/adr/` instead.
+
+Create files lazily: only when you have something to write. If no `CONTEXT.md` exists, create one when the first term is resolved. If no `adr/` exists, create it when the first ADR is needed.
 
 ## During the session
 
