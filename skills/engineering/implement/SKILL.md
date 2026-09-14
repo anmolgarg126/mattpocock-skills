@@ -10,6 +10,6 @@ Use /tdd where possible, at pre-agreed seams.
 
 Run typechecking regularly, single test files regularly, and the full test suite once at the end.
 
-Once done, use /code-review to review the work.
+Once done, use /review-since to review the work.
 
-Commit your work to the current branch.
+Never commit without explicit approval. Show the user the diff summary and the commit message you propose, then wait for them to say yes. Only then commit to the current branch. The same goes for any push, tag or branch creation.

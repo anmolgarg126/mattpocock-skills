@@ -31,18 +31,20 @@ _Avoid_: Client, buyer, account
 
 ## Single vs multi-context repos
 
-**Single context (most repos):** One `CONTEXT.md` at the repo root.
+Both live under `~/Developer/codebase/code-knowledge/<repo>/`, never in the source repo.
 
-**Multiple contexts:** A `CONTEXT-MAP.md` at the repo root lists the contexts, where they live, and how they relate to each other:
+**Single context (most repos):** One `CONTEXT.md` in that folder.
+
+**Multiple contexts:** A `CONTEXT-MAP.md` beside it lists the contexts, where they live, and how they relate to each other:
 
 ```md
 # Context Map
 
 ## Contexts
 
-- [Ordering](./src/ordering/CONTEXT.md): receives and tracks customer orders
-- [Billing](./src/billing/CONTEXT.md): generates invoices and processes payments
-- [Fulfillment](./src/fulfillment/CONTEXT.md): manages warehouse picking and shipping
+- [Ordering](./contexts/ordering/CONTEXT.md): receives and tracks customer orders
+- [Billing](./contexts/billing/CONTEXT.md): generates invoices and processes payments
+- [Fulfillment](./contexts/fulfillment/CONTEXT.md): manages warehouse picking and shipping
 
 ## Relationships
 
